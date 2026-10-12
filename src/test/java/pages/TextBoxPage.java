@@ -37,8 +37,10 @@ public class TextBoxPage extends BasePage {
         return el(output).isDisplayed();
     }
 
-    public boolean isOutputAbsent() {
-        return driver.findElements(output).isEmpty();
+    /** Блок #output есть в DOM всегда, но пустой, пока форма не отправлена успешно. */
+    public boolean isOutputEmpty() {
+        return driver.findElements(output).stream()
+                .allMatch(e -> e.getText().trim().isEmpty());
     }
 
     public String outputText() {

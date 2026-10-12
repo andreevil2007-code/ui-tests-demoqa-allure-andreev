@@ -33,6 +33,6 @@ public class TextBoxTest extends BaseTest {
         String cssClass = page.emailFieldClass();
         Assert.assertTrue(cssClass.contains("error") || cssClass.contains("invalid"),
                 "Ожидалась индикация ошибки для поля email. Фактически class=" + cssClass);
-        Assert.assertTrue(page.isOutputAbsent(), "При невалидном email блок результата показываться не должен.");
+               Assert.assertTrue(page.isOutputEmpty(), "При невалидном email в блоке результата не должно быть данных.");
     }
 }
